@@ -1,0 +1,169 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom, #023047, #274c77, #14213d);
+  font-family: 'Garet', sans-serif;
+}
+
+/* Default button style */
+button {
+  padding: 12px 25px;
+  font-size: 1.1rem;
+  font-family: 'Garet', sans-serif;
+  color: white;
+  background: linear-gradient(135deg, #4da6ff, #0066cc);
+  border: 2px solid white;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+button:hover {
+  background: linear-gradient(135deg, #0066cc, #4da6ff);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* FILTER + BACK POSITIONING */
+.filter {
+  margin-top: 20px;
+}
+
+.back {
+  margin-bottom: 20px;
+}
+
+/* Custom enhanced BACK button styling */
+button.back {
+  margin-top: 30px;
+  padding: 14px 35px;
+  font-size: 1.2rem;
+  font-family: 'Garet', sans-serif;
+  color: #ffffff;
+  background: linear-gradient(135deg, #00b4d8, #0077b6);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  box-shadow: 0 8px 25px rgba(0, 183, 255, 0.3);
+}
+
+/* Glow + lift on hover */
+button.back:hover {
+  background: linear-gradient(135deg, #0096c7, #00b4d8);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 183, 255, 0.45);
+}
+
+/* Pressed effect */
+button.back:active {
+  transform: scale(0.98);
+  box-shadow: 0 6px 15px rgba(0, 183, 255, 0.3);
+}
+
+/* Shimmer / ripple-like shine */
+button.back::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: skewX(-25deg);
+  transition: left 0.7s ease;
+}
+
+button.back:hover::before {
+  left: 130%;
+}
+
+/* Graph styles */
+.chart-container {
+  width: 600px;
+  margin: 40px 0;
+  color: white;
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+  position: relative;          /* added */
+  padding-bottom: 12px;        /* added */
+}
+
+/* --- NEW: separator line --- */
+.bar::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.bar-label {
+  width: 100px;
+  text-align: right;
+  margin-right: 10px;
+}
+
+.bar-fill {
+  height: 25px;
+  background-color: #33adff;
+  border-radius: 5px;
+  transition: width 1s ease-out;
+}
+
+.bar-value {
+  margin-left: 10px;
+  min-width: 30px;
+}
+
+/* Week buttons container */
+.week-buttons {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+/* Individual week buttons */
+.week-btn {
+  padding: 10px 20px;
+  margin: 0 5px;
+  border: 1px solid #0077cc;
+  border-radius: 25px;
+  background-color: #4da6ff;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Garet', sans-serif;
+}
+
+.week-btn:hover {
+  background-color: #0066cc;
+  transform: translateY(-2px);
+}
+
+/* Highlight active week */
+.week-btn.active-week {
+  background-color: #0077cc;
+  font-weight: bold;
+  color: #ffffff;
+  box-shadow: 0 0 15px 5px rgba(0, 123, 255, 0.7);
+}

@@ -1,0 +1,116 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom, #023047, #274c77, #14213d);
+  font-family: 'Garet', sans-serif;
+}
+
+h1 {
+  color: white;
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+#week-number {
+  color: white;
+  font-size: 3rem;
+}
+
+#date-today {
+  color: #4da6ff;
+  font-size: 1.5rem;
+  margin-top: -10px;
+}
+
+/* Button Styling */
+button {
+  margin-top: 30px;
+  padding: 14px 35px;
+  font-size: 1.2rem;
+  font-family: 'Garet', sans-serif;
+  color: #ffffff;
+  background: linear-gradient(135deg, #00b4d8, #0077b6);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  box-shadow: 0 8px 25px rgba(0, 183, 255, 0.3);
+}
+
+button:hover {
+  background: linear-gradient(135deg, #0096c7, #00b4d8);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 183, 255, 0.45);
+}
+
+button:active {
+  transform: scale(0.98);
+  box-shadow: 0 6px 15px rgba(0, 183, 255, 0.3);
+}
+
+button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: skewX(-25deg);
+  transition: left 0.7s ease;
+}
+
+button:hover::before {
+  left: 130%;
+}
+
+/* Water Circle */
+.water {
+  height: 400px;
+  width: 400px;
+  border: 10px solid white;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+
+  background: url("waterfill.png") repeat-x;
+  background-size: auto 100%;
+  background-position: 0px var(--final-fill-y); /* <-- link variable */
+
+  animation: wave 20s linear infinite;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  --final-fill-y: 400px; /* starts empty */
+  transition: --final-fill-y 1s ease-in-out;
+}
+
+/* Text inside */
+.water-text {
+  color: white;
+  font-size: 4rem;
+  font-weight: bold;
+  text-shadow: 0 0 20px rgba(0, 183, 255, 0.8);
+  z-index: 2;
+}
+
+/* One-direction smooth wave */
+@keyframes wave {
+  0%   { background-position-x: 0px; }
+  100% { background-position-x: -1200px; } 
+}
+
+/* Smooth vertical fill */
+@keyframes fillUpDynamic {
+  0%   { background-position-y: 400px; }
+  100% { background-position-y: var(--final-fill-y); }
+}
